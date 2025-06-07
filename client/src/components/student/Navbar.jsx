@@ -12,7 +12,7 @@ const Navbar = () => {
   
   return (
     <div className={` bg-gradient-to-t from-limeAccent flex items-center justify-between px-4 sm:px-10 md:px-14 lg:px-36  py-4 ${isCourseListPage? 'bg-black':'bg-pitchBlack'}`}>
-      <img onClick={()=>navigate('/')} src={assets.logo} alt="Logo" className='w-28 lg:w-32 cursor-pointer' />
+      <img onClick={()=>navigate('/')} src={assets.logo} alt="Logo" className='w-[224px] lg:w-[256px] cursor-pointer' />
       <div className='hidden md:flex items-center gap-5 text-white'>
         <div className='flex items-center gap-5'>
           {user && <>
