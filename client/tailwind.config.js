@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        limeAccent: '#ceff65',
+        limeAccent: '#CEFF65',
         pitchBlack:'#080808',
       },
       fontSize:{
