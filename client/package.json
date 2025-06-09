@@ -13,6 +13,7 @@
     "@clerk/clerk-react": "^5.31.9",
     "duration": "^0.2.2",
     "humanize": "^0.0.9",
+    "humanize-duration": "^3.33.0",
     "quill": "^2.0.3",
     "rc-progress": "^4.0.0",
     "react": "^19.1.0",
