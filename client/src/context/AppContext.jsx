@@ -7,6 +7,7 @@ export const AppContextProvider=(props)=>{
 
     const currency=import.meta.env.VITE_CURRENCY
     const [allCourses,setAllCourses]=useState([])
+    const [enrolledCourses ,setEnrolledCourses]=useState([])
     const navigate=useNavigate()
     const [isEducator,setIsEducator]=useState(true)
     const calculateRating=(course)=>{
@@ -29,11 +30,16 @@ export const AppContextProvider=(props)=>{
 
     }
     // funtion to find duartion of whooe course
-    const calculateCourseDuartion=(course)=>{
-      let time=0
-      course.courseContent.map((chapter)=>chapter.chapterContent.map((lecture)=>lecture.lectureDuration))
-      return humanizeDuration(time*60*1000,{units:["h","m"]})
-    }
+    const calculateCourseDuartion = (course) => {
+        let time = 0;
+        course.courseContent.forEach((chapter) => {
+          chapter.chapterContent.forEach((lecture) => {
+            time += lecture.lectureDuration;
+          });
+        });
+        return humanizeDuration(time * 60 * 1000, { units: ["h", "m"] });
+      };
+      
     //function to calculate no.of lectures
     const calculateNoofLectures=(course)=>{
         let totalLectures=0
@@ -45,14 +51,21 @@ export const AppContextProvider=(props)=>{
         });
         return totalLectures
     }
+    //fetch user enrlled course 
+    const fetchEnrolledCourses=async()=>{
+        // this is dummy data
+        setEnrolledCourses(dummyCourses)
+    }
     const fetchAllCourses=async()=>{
         setAllCourses(dummyCourses)
     }
     useEffect(()=>{
         fetchAllCourses()
+        fetchEnrolledCourses()
     },[])
+    
     const value={
-        currency,allCourses,navigate,calculateRating,isEducator,setIsEducator,calculateCourseDuartion,calculatechapterTime,calculateNoofLectures
+        currency,allCourses,navigate,calculateRating,isEducator,setIsEducator,calculateCourseDuartion,calculatechapterTime,calculateNoofLectures,fetchEnrolledCourses,enrolledCourses
     }
     return(
         <AppContext.Provider value={value}>

@@ -27,9 +27,14 @@ export default {
       maxWidth:{
         'course-card':'424px',
       },
-      boxShadow:{
-        'custom-card':'0px 4px 15px 2px rgba(0,0,0,0.1)',
-      }
+      boxShadow: {
+        'custom-card': `
+          -7px 7px 15px 0px #ceff65,   /* Bottom-left diagonal */
+          7px 7px 15px 0px #ceff65,    /* Bottom-right diagonal */
+          0px 10px 15px 0px #ceff65    /* Bottom */
+        `,
+      },
+      
     },
   },
   plugins: [],
