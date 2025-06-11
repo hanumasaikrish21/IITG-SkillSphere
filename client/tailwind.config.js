@@ -33,6 +33,7 @@ export default {
           7px 7px 15px 0px #ceff65,    /* Bottom-right diagonal */
           0px 10px 15px 0px #ceff65    /* Bottom */
         `,
+        limeGlow: '0 4px 20px #ceff65',
       },
       
     },
