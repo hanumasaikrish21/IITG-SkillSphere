@@ -9,7 +9,7 @@ const Sidebar = () => {
     {name:'Dashboard',path:'/educator',icon:assets.home_icon},
     {name:'Add Course',path:'/educator/add-course',icon:assets.add_icon},
     {name:'My Courses',path: '/educator/my-courses',icon:assets.my_course_icon},
-    {name:'Dashboard',path:'/educator/student-enrolled',icon:assets.person_tick_icon},
+    {name:'Student Enrolled',path:'/educator/student-enrolled',icon:assets.person_tick_icon},
   ];
   return isEducator&& (
     <div className='md:w-64 w-16 border-r min-h-screen text-base py-2 flex flex-col border-limeAccent'>
