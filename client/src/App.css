@@ -40,3 +40,25 @@
 .read-the-docs {
   color: #888;
 }
+/* Ensure toolbar and content do NOT have extra borders */
+.quill-wrapper .ql-toolbar {
+  border: none !important;
+  background-color: white;
+}
+
+.quill-wrapper .ql-container {
+  border: none !important;
+  height: 100%;
+}
+
+/* Make icons glow lime on hover */
+.quill-wrapper .ql-toolbar button:hover svg {
+  fill: #ceff65 !important;
+  filter: drop-shadow(0 0 4px #ceff65);
+}
+
+/* Default icon color */
+.quill-wrapper .ql-toolbar button svg {
+  fill: black;
+  transition: all 0.2s ease;
+}
