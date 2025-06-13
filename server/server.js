@@ -1,7 +1,7 @@
-// server.js
 import express from 'express';
 import 'dotenv/config';
 import cors from 'cors';
+
 import connectDB from './configs/mongodb.js';
 import connectCloudinary from './configs/cloudinary.js';
 import { clerkWebhooks, stripeWebhooks } from './controllers/webhooks.js';
@@ -18,10 +18,15 @@ console.log('🔁 server.js loaded');
 await connectDB();
 await connectCloudinary();
 
+// ====== RAW BODY ONLY FOR STRIPE WEBHOOK ======
+app.post('/stripe', express.raw({ type: 'application/json' }), stripeWebhooks);
+
+// ====== JSON BODY FOR EVERYTHING ELSE ======
 app.use(cors());
 app.use(express.json());
 app.use(clerkMiddleware());
 
+// ====== ROUTES ======
 app.get('/', (req, res) => {
   res.send('API is running');
 });
@@ -30,8 +35,8 @@ app.post('/clerk', clerkWebhooks);
 app.use('/api/educator', educatorRouter);
 app.use('/api/course', courseRouter);
 app.use('/api/user', userRouter);
-app.post('/stripe',express.raw({ type: 'application/json' }),stripeWebhooks)
 
+// ====== SERVER START ======
 app.listen(PORT, '127.0.0.1', () => {
   console.log(`🚀 Server is running at http://127.0.0.1:${PORT}`);
 });
