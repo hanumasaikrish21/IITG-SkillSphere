@@ -24,28 +24,48 @@ To provide IIT Guwahati students with a unified platform that aggregates:
 
 ---
 
-## 🛠️ Tech Stack
+## 🧱 Frontend Dependencies Explanation (`client/package.json`)
 
-### Frontend
-- **React.js**
-- **Tailwind CSS**
-- **@clerk/clerk-react** – Auth with Google/Microsoft
-- **Axios** – API handling
-- **Quill** – Rich text editor for course descriptions
-- **React Toastify** – Notifications
-- **React Router DOM** – Routing
-- **React YouTube** – Embedding video lectures
-- **Humanize-duration** – Time formatting
+| Package | Purpose |
+|--------|---------|
+| `@clerk/clerk-react` | Enables seamless integration with Clerk authentication on the frontend. |
+| `axios` | Handles API requests to the backend. |
+| `duration`, `humanize`, `humanize-duration` | Format course duration and other time values into readable strings. |
+| `quill` | WYSIWYG rich text editor for adding detailed course descriptions. |
+| `rc-progress` | Displays progress bars for enrolled courses. |
+| `react`, `react-dom` | Core React libraries. |
+| `react-router-dom` | Handles client-side routing. |
+| `react-toastify` | Shows non-intrusive success/error notifications. |
+| `react-youtube` | Embeds YouTube preview/trailer videos. |
+| `uniqid` | Generates unique IDs for elements like bookmarks or uploaded content. |
 
-### Backend
-- **Node.js + Express**
-- **MongoDB + Mongoose**
-- **@clerk/express** – Secure auth validation
-- **Stripe** – Payment processing
-- **Cloudinary** – Image and asset storage
-- **Multer** – File uploads
-- **Dotenv** – Environment configs
-- **Cors** – Cross-origin support
+---
+
+## 🛠 Backend Dependencies Explanation (`server/package.json`)
+
+| Package | Purpose |
+|--------|---------|
+| `@clerk/express` | Middleware for verifying JWT and protecting backend routes. |
+| `cloudinary` | Cloud-based image and video management. |
+| `cors` | Enables secure cross-origin requests from frontend to backend. |
+| `dotenv` | Loads environment variables from `.env`. |
+| `express` | Core backend framework to build REST APIs. |
+| `mongoose` | ODM for MongoDB, handles schema validation and querying. |
+| `multer` | Parses `multipart/form-data` for file uploads. |
+| `nodemon` | Auto-restarts the server during development when files change. |
+| `stripe` | Payment processing library to manage paid course transactions. |
+| `svix` | Listens to Clerk webhooks for user sync (e.g. signup/delete). |
+
+---
+
+## ⚙️ Technologies Used
+
+- **React.js** + **Tailwind CSS** for frontend UI.
+- **Node.js**, **Express**, **MongoDB** for backend.
+- **Stripe** for payments.
+- **Clerk** for authentication.
+- **Cloudinary** for image storage.
+- **Vercel** for frontend deployment.
 
 ---
 
@@ -62,6 +82,12 @@ Use the following command to start the Backend part:
 *     npm install
 *     npm run server
 
+---
+## 🔗 Live Preview
+
+🌐 [IITG SkillSphere – Preview Link](https://iitg-skill-sphere-frontend.vercel.app/)
+
+---
 ## 🧠 Coming Soon
 
 - 🔔 Notifications for new research paper uploads  
@@ -69,6 +95,7 @@ Use the following command to start the Backend part:
 - 📊 Analytics dashboard for students and educators  
 - 🗂️ Course tagging and auto-categorization 
 
+---
 
 
 
