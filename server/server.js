@@ -22,7 +22,11 @@ await connectCloudinary();
 app.post('/stripe', express.raw({ type: 'application/json' }), stripeWebhooks);
 
 // ====== JSON BODY FOR EVERYTHING ELSE ======
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+}));
 app.use(express.json());
 app.use(clerkMiddleware());
 
